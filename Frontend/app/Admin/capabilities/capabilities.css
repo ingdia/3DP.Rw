@@ -197,3 +197,35 @@
   border-radius:12px;
   cursor:pointer;
 }
+/* Search & filter section */
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.search-box {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: rgba(255, 255, 255, 0.08);
+  color: gray;
+}
+
+.filter-select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: rgba(255, 255, 255, 0.08);
+  color: gray;
+  cursor: pointer;
+}
+
+.no-results {
+  color: #aaa;
+  font-style: italic;
+  text-align: center;
+  margin-top: 2rem;
+}
