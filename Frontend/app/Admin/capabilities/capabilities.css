@@ -1,0 +1,199 @@
+.capabilities-page {
+  max-width: 900px;
+  margin: 50px auto;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  color: #a65f00;
+  font-size: 2rem;
+}
+
+.add-cap-btn {
+  padding: 12px 20px;
+  border-radius: 12px;
+  background-color: #a65f00;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-cap-btn:hover {
+  background-color: #d27b2c;
+}
+
+.capabilities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.capability-card {
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  transition: transform 0.2s;
+}
+
+.capability-card:hover {
+  transform: translateY(-5px);
+}
+
+.capability-card h2 {
+  font-size: 1.5rem;
+  color: #a65f00;
+  margin-bottom: 8px;
+}
+
+.capability-card .weighting {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.sub-capabilities {
+  border-top: 1px solid #a65f00;
+  padding-top: 10px;
+  color: gray;
+}
+
+.sub-cap {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 1rem;
+  border-bottom: 1px dashed rgba(255,255,255,0.2);
+}
+
+.sub-cap:last-child {
+  border-bottom: none;
+}
+
+.cap-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+}
+
+.edit-btn, .delete-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  background-color: #a65f00;
+  color: #fff;
+  border: none;
+}
+
+.edit-btn:hover {
+  background-color: #d27b2c;
+}
+
+.delete-btn {
+  background-color: rgba(255,0,0,0.3);
+  color: #fff;
+  border: none;
+}
+
+.delete-btn:hover {
+  background-color: #ff0000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0.6);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  color: gray;
+}
+
+.modal input {
+  width: 100%;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #a65f00;
+  background: rgba(255,255,255,0.1);
+  color: gray;
+}
+
+.subcap-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.remove-sub-btn {
+  background: rgba(255,0,0,0.3);
+  color: #fff;
+  border:none;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor:pointer;
+}
+
+.add-sub-btn {
+  background: #a65f00;
+  color: #fff;
+  border:none;
+  padding: 6px 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor:pointer;
+}
+
+.modal-actions {
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+}
+
+.save-btn {
+  background: #a65f00;
+  color:#fff;
+  border:none;
+  padding:8px 14px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.cancel-btn {
+  background: rgba(255,255,255,0.2);
+  color:#000;
+  border:none;
+  padding:8px 14px;
+  border-radius:12px;
+  cursor:pointer;
+}

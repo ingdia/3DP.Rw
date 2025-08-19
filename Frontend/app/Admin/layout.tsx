@@ -1,15 +1,12 @@
-import Sidebar from '../components/admin/Sidebar';
-import '../styles/admin.css';
+"use client";
+
+import AdminShell from "@/app/components/admin/AdminShell";
+import "@/app/styles/admin.css";
 
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="admin-layout">
-      <Sidebar />
-      <main className="admin-content">{children}</main>
-    </div>
-  );
+  return <AdminShell>{children}</AdminShell>;
 }

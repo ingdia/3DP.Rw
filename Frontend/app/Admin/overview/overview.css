@@ -1,0 +1,52 @@
+
+body{
+  background-color: white;
+}
+
+.overview-container {
+  padding: 20px;
+  color: #1e2939;
+}
+
+.overview-title {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.overview-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1 1 200px;
+  background-color: rgb(230, 229, 221); 
+  color: #1e2939;
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.overview-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.recent-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.recent-list li {
+  margin-bottom: 6px;
+}
