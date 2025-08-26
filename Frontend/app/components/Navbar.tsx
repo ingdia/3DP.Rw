@@ -33,7 +33,7 @@ export const Navbar = () => {
   width={210}
   height={80}
   priority
-  className="h-16 sm:h-20 md:h-20 w-auto" // big on mobile, smaller on medium and large screens
+  className="h-20 sm:h-20 md:h-20 w-auto" // big on mobile, smaller on medium and large screens
 />
 
   </Link>
