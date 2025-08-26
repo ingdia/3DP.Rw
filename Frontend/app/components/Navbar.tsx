@@ -87,48 +87,49 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown (Unchanged) */}
-      {isOpen && (
-        <div className="md:hidden" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`
-                  block px-3 py-2 text-white font-medium hover:bg-yellow-700 rounded-full text-center w-30
-                  ${
-                    pathname === link.href
-                      ? "bg-gray-500 text-blue-700"
-                      : "text-gray-50 hover:bg-gray-50 hover:text-gray-900"
-                  }
-                `}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="border-t border-gray-100 pt-4 pb-3">
-              <div className="flex flex-col space-y-2 px-3">
-                <Link
-                  href="/login"
-                  onClick={() => setIsOpen(false)}
-                  className="px-3 py-2 text-white font-medium hover:bg-yellow-700 rounded-full text-center w-30"
-                >
-                  Log In
-                </Link>
-                <Link
-                  href="/signup"
-                  onClick={() => setIsOpen(false)}
-                  className="px-3 py-2 bg-yellow-700 text-white rounded-full w-30 hover:bg-yellow-500 transition-colors text-center"
-                >
-                  Sign Up
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+{/* Mobile Menu Dropdown */}
+{isOpen && (
+  <div className="md:hidden" id="mobile-menu">
+    <div className="px-2 pt-2 pb-3 space-y-2 sm:px-3 flex flex-col items-center">
+      {navLinks.map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          onClick={() => setIsOpen(false)}
+          className={`
+            block px-3 py-2 text-white font-medium hover:bg-yellow-700 rounded-full text-center w-30
+            ${
+              pathname === link.href
+                ? "bg-gray-500 text-blue-700"
+                : "text-gray-50 hover:bg-gray-50 hover:text-gray-900"
+            }
+          `}
+        >
+          {link.label}
+        </Link>
+      ))}
+
+     <div className="border-t border-gray-100 pt-4 pb-3 w-full flex justify-between px-6">
+  <Link
+    href="/login"
+    onClick={() => setIsOpen(false)}
+    className="px-3 py-2 text-white font-medium hover:bg-yellow-700 rounded-full text-center w-1/2 mr-2"
+  >
+    Log In
+  </Link>
+  <Link
+    href="/signup"
+    onClick={() => setIsOpen(false)}
+    className="px-3 py-2 bg-yellow-700 text-white rounded-full w-1/2 ml-2 hover:bg-yellow-500 transition-colors text-center"
+  >
+    Sign Up
+  </Link>
+</div>
+
+    </div>
+  </div>
+)}
+
     </nav>
   );
 };
