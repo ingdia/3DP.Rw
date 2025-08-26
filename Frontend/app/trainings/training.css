@@ -5,32 +5,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helv
 .trainings-page__main { background-color: #f8fafc; color: #1e2838; min-height: 100vh; }
 
 /* --- HERO SECTION --- */
-.trainings-page__hero {
-  position: relative;
-  text-align: center;
-  padding: 6rem 2rem;
-  background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-  background-size: cover;
-  background-position: center;
-  color: white;
-}
+.trainings-page__hero { position: relative; text-align: center; padding: 6rem 2rem; background-image: url('https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); background-size: cover; background-position: center; color: white; }
 .hero__overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(30, 40, 56, 0.7); }
 .hero__content { position: relative; z-index: 1; }
 .trainings-page__title { font-size: 3rem; font-weight: 800; }
 .trainings-page__subtitle { font-size: 1.25rem; color: #e2e8f0; margin-top: 0.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
 
 /* --- FILTER & SEARCH CONTROLS --- */
-.filter-controls {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #f8fafc;
-}
+.filter-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; max-width: 1200px; margin: 0 auto; padding: 2rem; background-color: #f8fafc; }
 .search-input { flex-grow: 1; max-width: 400px; padding: 0.75rem 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem; font-size: 1rem; }
 .search-input:focus { outline: 2px solid #a65f00; border-color: #a65f00; }
 .status-filters { display: flex; gap: 0.5rem; background-color: #e2e8f0; padding: 0.25rem; border-radius: 0.5rem; }
@@ -64,7 +46,35 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helv
 .empty-state { text-align: center; padding: 4rem; width: 100%; }
 .modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(30, 40, 56, 0.6); display: flex; justify-content: center; align-items: center; padding: 2rem; z-index: 1000; backdrop-filter: blur(4px); animation: fadeIn 0.3s ease; }
 .modal-content { background-color: white; border-radius: 1rem; max-width: 700px; width: 100%; max-height: 90vh; display: flex; flex-direction: column; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); animation: scaleUp 0.3s ease; overflow: hidden; }
-.modal-close-button { position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.3); color: white; border: none; font-size: 1.5rem; cursor: pointer; height: 2rem; width: 2rem; border-radius: 9999px; display: flex; align-items: center; justify-content: center; z-index: 10; }
+
+/* === THIS SECTION HAS BEEN UPDATED === */
+.modal-close-button {
+  position: absolute;
+  /* Positioned relative to the viewport/overlay */
+  top: 1.5rem;
+  right: 2rem;
+  background: #a65f00;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  height: 2.5rem; /* Larger for better touch access */
+  width: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001; /* Ensure it's above the modal content */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.modal-close-button:hover {
+  background-color: #8c5000;
+  transform: scale(1.1);
+}
+/* ======================================= */
+
 .details__header { height: 200px; flex-shrink: 0; }
 .details__header-image { width: 100%; height: 100%; object-fit: cover; }
 .details__content { padding: 1.5rem 2rem; overflow-y: auto; }

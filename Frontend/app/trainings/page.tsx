@@ -3,8 +3,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import './training.css';
-
+import './training.css'; // The single CSS file
 
 type Course = {
   id: string; 
@@ -13,19 +12,17 @@ type Course = {
   longDescription: string;
   duration: string;
   whatYoullLearn: string[];
-  status: 'open' | 'up coming' | 'closed'; // Corrected type
+  status: 'open' | 'up coming' | 'closed';
   googleFormUrl: string | null;
   imageUrl: string;
   qrCodeUrl: string | null;
 };
 
 const TrainingsPage = () => {
-  // === STATE MANAGEMENT ===
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeFilter, setActiveFilter] = useState<'all' | 'open' | 'up coming' | 'closed'>('all');
 
-  // === COURSE DATA ===
   const courses: Course[] = [
     {
       id: 'data-analysis-2025',
@@ -34,15 +31,15 @@ const TrainingsPage = () => {
       status: 'open',
       googleFormUrl: 'https://forms.gle/XUxVLnJp4xWaA66z9',
       imageUrl: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      qrCodeUrl: '/QRcode.jpg', // Assumes my-qr-code.png is in your /public folder
+      qrCodeUrl: '/QRcode.jpg',
       duration: '2 Months',
-      longDescription: `Are you a working professional looking to upgrade your data skills without interrupting your day job? This after-work program is designed just for you! It's a hands-on, practical course tailored for professionals across different industries who want to make data-driven decisions, improve reporting, and become more competitive in today's digital economy.`,
+      longDescription: `This practical course is for professionals across industries who want to make data-driven decisions, improve reporting, and become more competitive. Whether you're in health, education, finance, or government, this training will help you use data effectively.`,
       whatYoullLearn: [
-        'Microsoft Excel and Google Sheets for Data Cleaning',
-        'Power BI and Data Visualization Techniques',
+        'Excel & Google Sheets for Data Analysis',
+        'Power BI & Data Visualization',
         'Data Manipulation with SQL',
         'Communicating Data Insights',
-        'Real-world case studies and hands-on exercises',
+        'Real-world case studies',
       ],
     },
     {
@@ -71,7 +68,6 @@ const TrainingsPage = () => {
     },
   ];
 
-  // === DYNAMIC FILTERING LOGIC ===
   const filteredCourses = courses
     .filter(course => {
       if (activeFilter === 'all') return true;
@@ -82,9 +78,21 @@ const TrainingsPage = () => {
       course.description.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
-  // Effect to prevent background scrolling when the modal is open
   useEffect(() => {
-    document.body.style.overflow = selectedCourse ? 'hidden' : 'auto';
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedCourse(null);
+      }
+    };
+    if (selectedCourse) {
+      document.body.style.overflow = 'hidden';
+      document.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, [selectedCourse]);
 
   const getStatusClass = (status: Course['status']) => {
@@ -114,7 +122,6 @@ const TrainingsPage = () => {
       </Head>
 
       <main className="trainings-page__main">
-        {/* --- HERO SECTION --- */}
         <div className="trainings-page__hero">
           <div className="hero__overlay"></div>
           <div className="hero__content">
@@ -125,7 +132,6 @@ const TrainingsPage = () => {
           </div>
         </div>
 
-        {/* --- FILTER AND SEARCH CONTROLS --- */}
         <div className="filter-controls">
           <input
             type="text"
@@ -142,7 +148,6 @@ const TrainingsPage = () => {
           </div>
         </div>
 
-        {/* --- COURSE GRID --- */}
         <div className="trainings-page__card-container">
           {filteredCourses.map((course) => (
             <div className="training-card" key={course.id}>
@@ -167,7 +172,6 @@ const TrainingsPage = () => {
           ))}
         </div>
 
-        {/* --- EMPTY STATE MESSAGE --- */}
         {filteredCourses.length === 0 && (
           <div className="empty-state">
             <h3>No Courses Found</h3>
@@ -176,11 +180,13 @@ const TrainingsPage = () => {
         )}
       </main>
       
-      {/* --- PROFESSIONAL MODAL FOR DETAILS --- */}
       {selectedCourse && (
         <div className="modal-overlay" onClick={() => setSelectedCourse(null)}>
+          {/* === BUTTON MOVED HERE === */}
+          {/* It is now a sibling of modal-content, not a child. */}
+          <button className="modal-close-button" onClick={() => setSelectedCourse(null)}>&times;</button>
+          
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-button" onClick={() => setSelectedCourse(null)}>&times;</button>
             <div className="details__header">
               <img src={selectedCourse.imageUrl} alt="" className="details__header-image" />
             </div>

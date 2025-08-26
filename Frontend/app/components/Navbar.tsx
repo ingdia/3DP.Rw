@@ -25,15 +25,15 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* === LOGO SECTION (CHANGED) === */}
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0  bg-gradient-to-r from-gray-700 via-gray-100 to-gray-700  h-20 ">
             <Link href="/" className="flex items-center">
               <Image
                 src="/Asset 3.svg" // The path to your logo in the `public` folder
                 alt="Your Company Logo"
                 width={210} // Set your desired width
-                height={45} // Set your desired height
+                height={12} // Set your desired height
                 priority // Add priority to load the logo quickly
-                className="h-30 w-auto"
+                className="h-38 w-auto -mt-10"
               />
             </Link>
           </div>
