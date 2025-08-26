@@ -3,9 +3,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import './training.css'; // The single CSS file
+import './training.css';
 
-// Define a type for our course object with the new 'upcoming' status
+
 type Course = {
   id: string; 
   title: string;
