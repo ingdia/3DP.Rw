@@ -1,0 +1,73 @@
+/* generate.css */
+:root {
+  --primary-color: #a65f00; --primary-color-hover: #c77a1a; --text-dark: #1f2937; --text-medium: #4b5563; --text-light: #6b7280; --border-color: #e5e7eb; --background-light: #f9fafb; --background-white: #ffffff;
+}
+.generate-page-container {
+  max-width: 900px; margin: 2rem auto; padding: 1rem; font-family: 'Poppins', sans-serif;
+}
+.page-header {
+  margin-bottom: 2rem;
+}
+.back-link {
+  display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 500; text-decoration: none; margin-bottom: 0.5rem; background: none; border: none; cursor: pointer; font-size: 0.9rem;
+}
+.page-title {
+  font-size: 1.75rem; font-weight: 600; color: var(--text-dark);
+}
+
+.workflow-container {
+  display: flex; flex-direction: column; gap: 2rem;
+}
+.workflow-step {
+  background: var(--background-white); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem;
+}
+.step-header {
+  display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;
+}
+.step-number {
+  background-color: var(--primary-color); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; flex-shrink: 0;
+}
+.step-header h2 {
+  font-size: 1.25rem; font-weight: 600;
+}
+.step-description {
+  color: var(--text-medium); margin-left: 3rem; margin-bottom: 1.5rem;
+}
+
+.form-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-left: 3rem;
+}
+.form-group {
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+.form-group label {
+  font-weight: 500; font-size: 0.9rem;
+}
+.form-input, .form-textarea {
+  width: 100%; padding: 0.7rem 0.8rem; border-radius: 8px; border: 1px solid var(--border-color); font-size: 0.9rem;
+}
+.form-textarea { resize: vertical; }
+.form-input:focus, .form-textarea:focus {
+  border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(166, 95, 0, 0.2); outline: none;
+}
+.generate-btn {
+  margin-left: 3rem;
+}
+.save-action {
+  margin-left: 3rem; margin-top: 1.5rem;
+}
+.btn {
+  padding: 0.6rem 1.2rem; border: none; border-radius: 8px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;
+}
+.btn-primary {
+  background-color: var(--primary-color); color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-color-hover);
+}
+.btn:disabled {
+  opacity: 0.6; cursor: not-allowed;
+}

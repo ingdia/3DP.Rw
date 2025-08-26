@@ -1,0 +1,52 @@
+/* companyDetails.css */
+:root { /* Using same variables for consistency */
+  --primary-color: #a65f00; --text-dark: #111827; --text-medium: #4b5563; --border-color: #e5e7eb; --background-light: #f9fafb; --background-white: #ffffff;
+}
+.admin-details-page {
+  max-width: 1100px; margin: 2rem auto; padding: 1rem; font-family: 'Poppins', sans-serif;
+}
+.back-link {
+  display: inline-flex; align-items: center; gap: 0.5rem; color: var(--primary-color); font-weight: 500; text-decoration: none; margin-bottom: 1.5rem;
+}
+.page-header {
+  border-bottom: 1px solid var(--border-color); padding-bottom: 1rem; margin-bottom: 1.5rem;
+}
+.company-name {
+  font-size: 2rem; font-weight: 700; color: var(--text-dark);
+}
+.assessment-info {
+  font-size: 1rem; color: var(--text-medium); margin-top: 0.25rem;
+}
+.card {
+  background: var(--background-white); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 1.5rem;
+}
+.card-title {
+  font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 1.5rem;
+}
+.admin-actions-card {
+  background-color: var(--background-light);
+}
+.actions-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;
+}
+.action-btn {
+  background-color: var(--background-white); color: var(--text-medium); border: 1px solid var(--border-color); padding: 0.75rem 1rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 0.75rem; font-size: 0.9rem;
+}
+.action-btn:hover:not(:disabled) {
+  border-color: var(--primary-color); color: var(--primary-color); background-color: #fffbeb;
+}
+.action-btn:disabled {
+  color: #9ca3af; background-color: #f3f4f6; cursor: not-allowed;
+}
+.results-placeholder {
+  border: 2px dashed var(--border-color); border-radius: 12px; padding: 3rem; text-align: center; color: var(--text-medium);
+}
+.modal-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: flex; justify-content: center; align-items: center; z-index: 1000;
+}
+.modal-content {
+  background: var(--background-light); padding: 2rem; border-radius: 8px; text-align: center;
+}
+.download-cert-btn {
+  margin-top: 2rem;
+}

@@ -1,0 +1,167 @@
+/* companies.css - Final Refined Version for Clarity */
+
+/* --- 1. Global Styles & CSS Variables --- */
+:root {
+  --primary-color: #a65f00;
+  --text-dark: #1f2937;
+  --text-medium: #4b5563;
+  --text-light: #6b7280;
+  --border-color: #e5e7eb;
+  --background-light: #f9fafb;
+  --background-white: #ffffff;
+  --success-bg: #dcfce7;
+  --success-text: #166534;
+  --pending-bg: #fef9c3;
+  --pending-text: #854d0e;
+  --danger-bg: #fee2e2;
+  --danger-text: #991b1b;
+}
+
+/* --- 2. Page Layout --- */
+.companies-page-container {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 1.75rem; /* Slightly smaller, more professional */
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* --- 3. Search & Controls --- */
+.search-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  transform: translateY(-50%);
+  color: var(--text-light);
+}
+
+.search-input {
+  padding: 0.6rem 0.8rem 0.6rem 2.5rem; /* Left padding for icon */
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 0.9rem; /* Smaller font */
+  width: 300px;
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(166, 95, 0, 0.2);
+  outline: none;
+}
+
+/* --- 4. THE GOOD TABLE --- */
+.table-card {
+  background: var(--background-white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.companies-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.companies-table thead {
+  background-color: var(--background-light);
+}
+
+.companies-table th {
+  padding: 12px 1.5rem;
+  font-size: 0.7rem; /* Smaller, standard header font */
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.companies-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-medium);
+  font-size: 0.875rem; /* Standard, readable body font */
+  vertical-align: middle;
+}
+
+.companies-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.company-name-cell {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* --- 5. Status Badges --- */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px; /* Pill shape */
+  font-size: 0.75rem; /* Smaller badge font */
+  font-weight: 500;
+}
+
+.status-badge.yes {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+}
+
+.status-badge.no {
+  background-color: var(--pending-bg);
+  color: var(--pending-text);
+}
+
+/* --- 6. Actions & Pagination --- */
+.btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.875rem; /* Standard button font size */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-view {
+  background-color: var(--background-white);
+  color: var(--text-medium);
+  border-color: var(--border-color);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.btn-view:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.no-results-cell {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-light);
+}

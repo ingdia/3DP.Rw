@@ -1,52 +1,64 @@
-// pages/forgot-password.js
 "use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMail, FiLoader, FiCheckCircle } from "react-icons/fi";
 import toast from "react-hot-toast";
-import Link from "next/link";
 import AuthLayout from "../components/AuthLayout";
 
 const ForgotPasswordPage = () => {
+  // State to manage the loading spinner on the button
   const [loading, setLoading] = useState(false);
+  // State to switch between the form and the success message
   const [submitted, setSubmitted] = useState(false);
+  // State to hold the user's email input
   const [email, setEmail] = useState("");
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (loading) return;
+    if (loading) return; // Prevent multiple submissions
 
     setLoading(true);
     const toastId = toast.loading("Sending reset link...");
 
     try {
-      // --- REPLACE WITH YOUR ACTUAL API CALL ---
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // --- ACTUAL API CALL ---
+      const response = await fetch('http://localhost:5000/api/auth/forgot-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
 
-      // Simulate an error if the email is not found
-      if (!email.includes("@")) {
-        // Replace with actual API logic
-        throw new Error("Email address not found.");
+      const data = await response.json();
+
+      // If the server responds with an error (e.g., 500), throw an error to be caught
+      if (!response.ok) {
+        throw new Error(data.message || 'An unexpected error occurred.');
       }
-      // ------------------------------------
+      
+      // On success, show the server's message and switch the view
+      toast.success(data.message, { id: toastId });
+      setSubmitted(true);
 
-      toast.success("Reset link sent!", { id: toastId });
-      setSubmitted(true); // Switch to the success view
     } catch (error) {
-      const errorMessage =
-        typeof error === "object" && error !== null && "message" in error
-          ? (error as { message?: string }).message
-          : "An error occurred.";
-      toast.error(errorMessage || "An error occurred.", { id: toastId });
+      // For security, even if an error occurs, we show a generic success message on the UI.
+      // This prevents attackers from knowing which emails are registered.
+      // The actual error is logged to the console for debugging.
+      console.error("Forgot Password Error:", error);
+      toast.success("If an account with that email exists, a link has been sent.", { id: toastId });
+      setSubmitted(true); // Still switch the view to the success message
     } finally {
+      // Ensure the loading spinner is turned off in all cases
       setLoading(false);
     }
   };
 
+  // Animation variants for a smooth transition between the form and success message
   const formVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
     exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
   };
 
@@ -62,6 +74,7 @@ const ForgotPasswordPage = () => {
       <div className="w-full">
         <AnimatePresence mode="wait">
           {!submitted ? (
+            // --- The Form View ---
             <motion.form
               key="form"
               variants={formVariants}
@@ -96,6 +109,7 @@ const ForgotPasswordPage = () => {
               </button>
             </motion.form>
           ) : (
+            // --- The Success Message View ---
             <motion.div
               key="success"
               variants={formVariants}
@@ -113,12 +127,12 @@ const ForgotPasswordPage = () => {
                 <FiCheckCircle className="text-green-500 text-6xl" />
               </motion.div>
               <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                Success!
+                Check Your Inbox!
               </h3>
               <p className="text-black">
                 If an account with that email exists, we've sent a password
-                reset link to <strong className="text-gray-500">{email}</strong>
-                . Please check your inbox and spam folder.
+                reset link to <strong className="text-gray-500">{email}</strong>.
+                Please check your inbox and spam folder.
               </p>
             </motion.div>
           )}

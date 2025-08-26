@@ -3,6 +3,7 @@
 
 import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   LayoutDashboard,
   Wrench,
@@ -12,6 +13,7 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
+  LogOut,
 } from "lucide-react";
 import "../admin/sidebar.css"; // Import the CSS for styling
 
@@ -71,7 +73,20 @@ export default function Sidebar({
   active,
   setActive,
   setMobileOpen,
-}: SidebarProps) {
+}: SidebarProps)
+ 
+{
+   const router = useRouter();
+
+    const handleLogout = () => {
+    // 1. Remove user data and token from browser storage
+    localStorage.removeItem("userInfo");
+    localStorage.removeItem("token");
+
+    // 2. Redirect to the login page
+    router.push("/login");
+  };
+
   return (
     <aside className={`sidebar ${collapsed ? "collapsed" : "expanded"} relative`}>
       {/* Brand / Logo */}
@@ -107,6 +122,16 @@ export default function Sidebar({
           />
         ))}
       </nav>
+      
+       <div>
+          <button
+            onClick={handleLogout}
+            className="sidebar-item w-full" // Use the same class for consistent styling
+          >
+            <LogOut className="icon" />
+            {!collapsed && <span className="label">Log Out</span>}
+          </button>
+        </div>
 
       {/* Footer */}
       <div className="sidebar-footer">© {new Date().getFullYear()} 3DP</div>

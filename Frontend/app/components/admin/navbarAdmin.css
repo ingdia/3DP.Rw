@@ -1,0 +1,92 @@
+/* navbar.css - Refined for the new shell layout */
+
+:root {
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --border-color: #e5e7eb;
+  --background-white: #ffffff;
+  --danger-color: #ef4444;
+}
+
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px; /* Slightly taller for a more premium feel */
+  padding: 0 2rem; /* More horizontal padding */
+  background-color: var(--background-white);
+  border-bottom: 1px solid var(--border-color);
+
+  /* This is the key change: it's no longer sticky */
+  /* Its position is now controlled by the parent .main-container */
+  width: 100%;
+  z-index: 90;
+}
+
+.navbar-left, .navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* --- User Profile Section --- */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  object-fit: cover;
+}
+
+/* --- Icon Buttons --- */
+.icon-btn {
+  background: transparent;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-light);
+  position: relative;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.icon-btn:hover {
+  background-color: #f9fafb;
+  color: var(--text-dark);
+  border-color: var(--border-color);
+}
+
+.notification-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--danger-color);
+  border-radius: 50%;
+  border: 2px solid var(--background-white);
+}
+
+/* --- Mobile Menu Button --- */
+.menu-btn {
+  display: none; /* Hidden by default on desktop */
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .admin-navbar {
+    padding: 0 1.5rem;
+  }
+  
+  .menu-btn {
+    display: flex; /* Show on mobile */
+  }
+}

@@ -1,0 +1,86 @@
+/* results.css */
+:root {
+  --primary-color: #a65f00; --text-dark: #111827; --text-medium: #4b5563; --border-color: #e5e7eb; --background-light: #f9fafb; --background-white: #ffffff; --success-color: #16a34a; --pending-color: #d97706;
+}
+.results-page-container {
+  max-width: 1100px; margin: 2rem auto; padding: 1rem; font-family: 'Poppins', sans-serif; background-color: var(--background-light);
+}
+.results-header {
+  display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;
+}
+.company-name {
+  font-size: 2rem; font-weight: 700; color: var(--text-dark);
+}
+.assessment-date {
+  font-size: 1rem; color: var(--text-medium); margin-top: 0.25rem;
+}
+.card {
+  background: var(--background-white); border: 1px solid var(--border-color); border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.card-title {
+  font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 1.5rem;
+}
+.results-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;
+}
+.overall-score-card {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.score-circle {
+  position: relative; width: 180px; height: 180px; margin-bottom: 1.5rem;
+}
+.score-svg {
+  transform: rotate(-90deg); width: 100%; height: 100%;
+}
+.circle-bg, .circle-progress {
+  fill: none; stroke-width: 3.8;
+}
+.circle-bg {
+  stroke: var(--border-color);
+}
+.circle-progress {
+  stroke: var(--primary-color); stroke-linecap: round; transition: stroke-dasharray 0.5s ease-in-out;
+}
+.score-text {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2.5rem; font-weight: 700; color: var(--primary-color);
+}
+.score-summary {
+  color: var(--text-medium); line-height: 1.6;
+}
+.certificate-status-card .status-content {
+  display: flex; flex-direction: column; align-items: center; text-align: center; height: 100%; justify-content: center;
+}
+.status-content h3 { font-size: 1.25rem; margin: 1rem 0 0.5rem 0; }
+.status-content p { color: var(--text-medium); line-height: 1.6; }
+.status-content.success { color: var(--success-color); }
+.status-content.pending { color: var(--pending-color); }
+.capabilities-breakdown-card .capabilities-list {
+  display: flex; flex-direction: column; gap: 2rem;
+}
+.capability-info {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;
+}
+.capability-name {
+  font-size: 1.1rem; font-weight: 500; color: var(--text-dark);
+}
+.capability-score {
+  font-size: 1.1rem; font-weight: 600; color: var(--primary-color);
+}
+.progress-bar-container {
+  width: 100%; height: 8px; background-color: var(--border-color); border-radius: 99px; overflow: hidden;
+}
+.progress-bar {
+  height: 100%; background-color: var(--primary-color); border-radius: 99px; transition: width 0.5s ease-in-out;
+}
+.capability-summary {
+  margin-top: 0.75rem; color: var(--text-medium); font-size: 0.9rem;
+}
+.btn {
+  padding: 0.6rem 1.2rem; border: 1px solid transparent; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;
+}
+.btn-outline {
+  background-color: transparent; color: var(--primary-color); border-color: var(--primary-color);
+}
+.btn-outline:hover {
+  background-color: var(--primary-color); color: white;
+}

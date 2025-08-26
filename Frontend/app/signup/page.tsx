@@ -4,17 +4,34 @@ import { motion } from "framer-motion";
 import { FiMail, FiLock, FiUser } from "react-icons/fi";
 import toast from "react-hot-toast";
 import AuthLayout from "../components/AuthLayout";
+import { useState } from "react";
 
 const SignUpPage = () => {
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    const promise = new Promise((resolve) =>
-      setTimeout(() => resolve("Success!"), 1500)
-    );
-    toast.promise(promise, {
+
+    const signupPromise = fetch('http://localhost:5000/api/auth/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ fullName, email, password }),
+    }).then(async (res) => {
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || 'Could not create account.');
+      }
+      return res.json();
+    });
+
+    toast.promise(signupPromise, {
       loading: "Creating account...",
       success: "Account created successfully!",
-      error: "Could not create account.",
+      error: (err) => err.toString(),
     });
   };
 
@@ -26,7 +43,6 @@ const SignUpPage = () => {
       linkHref="/login"
       linkText="Login"
       mobileLinkText="Already have an account? Login"
-      
     >
       <motion.form
         initial={{ opacity: 0 }}
@@ -41,6 +57,8 @@ const SignUpPage = () => {
             placeholder="Full Name"
             className="w-full p-2 pl-10 border-b-2 border-gray-800 focus:outline-none focus:border-gray-800"
             required
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
           />
         </div>
         <div className="relative mb-4">
@@ -50,6 +68,8 @@ const SignUpPage = () => {
             placeholder="Email"
             className="w-full p-2 pl-10 border-b-2 border-gray-800 focus:outline-none focus:border-gray-800"
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="relative mb-6">
@@ -59,6 +79,8 @@ const SignUpPage = () => {
             placeholder="Password"
             className="w-full p-2 pl-10 border-b-2 border-gray-800 focus:outline-none focus:border-gray-800"
             required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
 

@@ -1,0 +1,224 @@
+:root {
+  --primary-color: #a65f00;
+  --primary-color-hover: #c77a1a;
+  --primary-bg-light: #fef3c7; /* A light, complementary yellow */
+  --text-dark: #111827;
+  --text-medium: #4b5563;
+  --text-light: #6b7280;
+  --border-color: #e5e7eb;
+  --background-light: #f9fafb;
+  --background-white: #ffffff;
+  --danger-color: #dc2626;
+  --danger-bg-hover: #fee2e2;
+  --success-text: #166534;
+  --success-bg: #dcfce7;
+}
+
+/* --- 2. Page Layout --- */
+.page-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 0.5rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* --- 3. Controls (Buttons, Search, Filters) --- */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-color-hover);
+  transform: translateY(-1px);
+}
+
+.controls-container {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.form-input {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 0.95rem;
+  flex: 1;
+  min-width: 250px;
+  background-color: var(--background-white);
+}
+.form-input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(166, 95, 0, 0.2);
+  outline: none;
+}
+
+/* --- 4. THE GOOD TABLE --- */
+.table-container {
+  background: var(--background-white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.question-bank-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.question-bank-table thead {
+  background-color: var(--background-light);
+}
+
+.question-bank-table th {
+  padding: 12px 1.5rem;
+  font-size: 0.75rem;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+.question-bank-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.question-bank-table tbody tr:hover {
+  background-color: var(--background-light);
+}
+
+.question-bank-table td {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-medium);
+  font-size: 0.9rem;
+  vertical-align: middle;
+}
+
+.question-bank-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.question-text-cell {
+  color: var(--text-dark);
+  font-weight: 500;
+  line-height: 1.5;
+  min-width: 300px; /* Give it space, but allow wrapping */
+}
+
+.capability-cell span {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: var(--border-color);
+  color: var(--text-medium);
+  white-space: nowrap;
+}
+
+.correct-answer-cell {
+  color: var(--success-text);
+  font-weight: 600;
+}
+
+.no-results-cell {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+/* --- 5. Actions & Pagination --- */
+.actions-cell {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.btn-icon {
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: all 0.2s ease;
+  margin-left: 0.25rem;
+}
+
+.btn-icon.edit:hover {
+  color: var(--primary-color);
+  background-color: var(--primary-bg-light);
+}
+
+.btn-icon.delete:hover {
+  color: var(--danger-color);
+  background-color: var(--danger-bg-hover);
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 0.5rem;
+  color: var(--text-medium);
+  font-size: 0.9rem;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pagination-btn {
+  border: 1px solid var(--border-color);
+  background-color: var(--background-white);
+  color: var(--text-medium);
+  min-width: 40px;
+  height: 40px;
+}
+.pagination-btn:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+.pagination-btn:disabled {
+  color: var(--text-light);
+  cursor: not-allowed;
+}

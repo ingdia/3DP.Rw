@@ -1,0 +1,34 @@
+/* shell.css - The master layout for the admin dashboard */
+
+.admin-shell {
+  background-color: #f8fafc; /* Light gray background for the content area */
+  min-height: 100vh;
+}
+
+/* This container holds the Navbar and the main page content */
+.main-container {
+  position: relative;
+  /* Start with a margin equal to the expanded sidebar width */
+  margin-left: 260px;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* When the parent has this class, shrink the margin */
+.admin-shell.sidebar-collapsed .main-container {
+  margin-left: 80px; /* Match the collapsed sidebar width */
+}
+
+.content-area {
+  padding: 2rem; /* Spacing for your actual page content */
+}
+
+/* --- Responsive Design for Mobile --- */
+@media (max-width: 768px) {
+  .main-container {
+    margin-left: 0 !important; /* No margin on mobile */
+  }
+
+  .content-area {
+    padding: 1.5rem;
+  }
+}
