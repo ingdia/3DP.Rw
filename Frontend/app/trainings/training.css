@@ -90,3 +90,26 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helv
 .apply-methods__text p { font-size: 0.9rem; color: #475569; line-height: 1.6; margin: 0 0 1rem 0; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes scaleUp { from { transform: scale(0.95); } to { transform: scale(1); } }
+
+
+@media (max-width: 768px) {
+  .trainings-page__title {
+    font-size: 2rem;
+  }
+
+  .trainings-page__subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .training-card {
+    flex: 1 1 100%;
+    max-width: 90%;
+    height: auto;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

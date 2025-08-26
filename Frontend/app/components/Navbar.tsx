@@ -100,7 +100,7 @@ export const Navbar = () => {
                   block px-3 py-2 text-white font-medium hover:bg-yellow-700 rounded-full text-center w-30
                   ${
                     pathname === link.href
-                      ? "bg-blue-50 text-blue-700"
+                      ? "bg-gray-500 text-blue-700"
                       : "text-gray-50 hover:bg-gray-50 hover:text-gray-900"
                   }
                 `}
