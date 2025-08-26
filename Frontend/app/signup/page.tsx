@@ -54,7 +54,7 @@ const SignUpPage = () => {
           <FiUser className="absolute top-1/2 left-3 transform -translate-y-1/2 text-black" />
           <input
             type="text"
-            placeholder="Full Name"
+            placeholder="Company Name"
             className="w-full p-2 pl-10 border-b-2 border-gray-800 focus:outline-none focus:border-gray-800"
             required
             value={fullName}
