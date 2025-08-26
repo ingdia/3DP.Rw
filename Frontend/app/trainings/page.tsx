@@ -13,7 +13,7 @@ type Course = {
   longDescription: string;
   duration: string;
   whatYoullLearn: string[];
-  status: 'open' | 'closed';
+  status: 'open' | 'up coming' | 'closed';
   googleFormUrl: string | null;
   imageUrl: string;
 };
@@ -55,7 +55,7 @@ const TrainingsPage = () => {
       id: 'web-dev-intro-2025',
       title: 'Introduction to Web Development',
       description: 'Learn the fundamentals of HTML, CSS, and JavaScript to build websites.',
-      status: 'closed',
+      status: 'up coming',
       googleFormUrl: null,
       imageUrl: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       duration: '6 Weeks',
@@ -111,7 +111,7 @@ const TrainingsPage = () => {
                       <span className="detail-item__label">Duration:</span>
                       <span className="detail-item__value">{course.duration}</span>
                     </div>
-                    <p className="detail-item__long-description">{course.longDescription}</p>
+                    {/* <p className="detail-item__long-description">{course.longDescription}</p> */}
                     <h3 className="detail-item__learn-header">What You'll Learn</h3>
                     <ul className="detail-item__learn-list">
                       {course.whatYoullLearn.map((item, index) => <li key={index}>{item}</li>)}
