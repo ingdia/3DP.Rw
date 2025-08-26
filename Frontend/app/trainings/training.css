@@ -1,0 +1,155 @@
+/* --- General Page Styles --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.trainings-page__main {
+  background-color: #f8fafc;
+  color: #1e2838;
+  min-height: 100vh;
+  padding: 3rem 2rem;
+}
+
+.trainings-page__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.trainings-page__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e2838;
+}
+
+.trainings-page__subtitle {
+  font-size: 1.125rem;
+  color: #475569;
+  margin-top: 0.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Card Grid Container --- */
+.trainings-page__card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- New, Compact Card Design --- */
+.training-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  flex: 1 1 340px;
+  max-width: 350px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.training-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.training-card__image-container {
+  position: relative;
+}
+
+.training-card__image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.training-card__status {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.training-card__status--open {
+  color: #a65f00; /* Your brand color */
+}
+
+.training-card__status--closed {
+  color: #475569;
+}
+
+.training-card__content {
+  flex-grow: 1;
+  padding: 1.25rem;
+}
+
+.training-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e2838;
+  margin: 0 0 0.5rem 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.training-card__description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* --- Footer & Button --- */
+.training-card__footer {
+  padding: 1.25rem;
+  border-top: 1px solid #f1f5f9;
+}
+
+.training-card__link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #1e2838;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  border: none; /* For the button element */
+  font-size: 1rem; /* Match button and anchor font size */
+  transition: background-color 0.2s ease;
+}
+
+.training-card__link:hover {
+  background-color: #334155;
+}
+
+.training-card__link--disabled {
+  background-color: #e2e8f0;
+  color: #64748b;
+  cursor: not-allowed;
+}
+.training-card__link--disabled:hover {
+  background-color: #e2e8f0;
+}

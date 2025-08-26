@@ -28,12 +28,12 @@ export const Navbar = () => {
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Image
-                src="/3dp.jpg" // The path to your logo in the `public` folder
+                src="/Asset 3.svg" // The path to your logo in the `public` folder
                 alt="Your Company Logo"
-                width={110} // Set your desired width
-                height={25} // Set your desired height
+                width={210} // Set your desired width
+                height={45} // Set your desired height
                 priority // Add priority to load the logo quickly
-                className="h-12 w-auto"
+                className="h-30 w-auto"
               />
             </Link>
           </div>
