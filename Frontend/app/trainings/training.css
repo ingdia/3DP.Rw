@@ -92,24 +92,195 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helv
 @keyframes scaleUp { from { transform: scale(0.95); } to { transform: scale(1); } }
 
 
-@media (max-width: 768px) {
-  .trainings-page__title {
-    font-size: 2rem;
+/* === RESPONSIVE STYLES === */
+@media (max-width: 1024px) {
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1.5rem;
   }
 
-  .trainings-page__subtitle {
-    font-size: 1rem;
-    padding: 0 1rem;
+  .search-input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .status-filters {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+  }
+
+  .status-filters button {
+    flex: 1 1 48%; /* two buttons per row */
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .trainings-page__card-container {
+    gap: 1.5rem;
+    padding: 0 1rem 3rem 1rem;
   }
 
   .training-card {
     flex: 1 1 100%;
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
   }
+}
 
+@media (max-width: 640px) {
+  .trainings-page__title {
+    font-size: 1.75rem;
+  }
+
+  .trainings-page__subtitle {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+
+  .status-filters button {
+    flex: 1 1 100%; /* one button per row on small screens */
+  }
+
+  .details__apply-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .apply-methods__qr-code img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* === RESPONSIVE STYLES === */
+@media (max-width: 1024px) {
   .filter-controls {
     flex-direction: column;
     align-items: stretch;
+    gap: 1rem;
+    padding: 1.5rem;
   }
+
+  .search-input {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .status-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+  }
+
+  .status-filters button {
+    flex: 1 1 calc(50% - 0.25rem); /* two buttons per row with gap */
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .trainings-page__card-container {
+    gap: 1.5rem;
+    padding: 0 1rem 3rem 1rem;
+  }
+
+  .training-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-controls {
+    gap: 0.75rem;
+  }
+
+  .status-filters button {
+    flex: 1 1 100%; /* one button per row on smaller screens */
+  }
+}
+
+@media (max-width: 640px) {
+  .trainings-page__title {
+    font-size: 1.75rem;
+  }
+
+  .trainings-page__subtitle {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+
+  .details__apply-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .apply-methods__qr-code img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .status-filters button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.75rem;
+  }
+
+  .trainings-page__hero {
+    padding: 4rem 1rem;
+  }
+}
+
+/* === IMAGE RESPONSIVENESS === */
+
+/* Hero Image */
+.trainings-page__hero {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Card Images */
+.card__image-container {
+  width: 100%;
+  height: auto; /* let it scale with card width */
+}
+
+.card__image {
+  width: 100%;
+  height: auto; /* maintain aspect ratio */
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0; /* keep top corners rounded */
+}
+
+/* Modal Header Image */
+.details__header {
+  width: 100%;
+  height: auto; /* scale with content */
+  max-height: 250px; /* prevent being too tall */
+}
+
+.details__header-image {
+  width: 100%;
+  height: auto; /* maintain aspect ratio */
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+/* QR Code in Modal */
+.apply-methods__qr-code img {
+  max-width: 100%;
+  height: auto;
 }

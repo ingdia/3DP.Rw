@@ -12,7 +12,7 @@ type Course = {
   longDescription: string;
   duration: string;
   whatYoullLearn: string[];
-  status: 'open' | 'up coming' | 'closed';
+  status: 'open' | 'upcoming' | 'closed';
   googleFormUrl: string | null;
   imageUrl: string;
   qrCodeUrl: string | null;
@@ -21,7 +21,7 @@ type Course = {
 const TrainingsPage = () => {
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeFilter, setActiveFilter] = useState<'all' | 'open' | 'up coming' | 'closed'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'open' | 'upcoming' | 'closed'>('all');
 
   const courses: Course[] = [
     {
@@ -46,7 +46,7 @@ const TrainingsPage = () => {
       id: 'web-dev-intro-2025',
       title: 'Introduction to Web Development',
       description: 'Learn the fundamentals of HTML, CSS, and JavaScript to build websites.',
-      status: 'up coming',
+      status: 'upcoming',
       googleFormUrl: null,
       imageUrl: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
       qrCodeUrl: null,
@@ -56,7 +56,7 @@ const TrainingsPage = () => {
     },
     {
       id: 'ml-workshop-2025',
-      title: 'Advanced Machine Learning Workshop',
+      title: 'Advanced Machine Learning ',
       description: 'A deep dive into advanced machine learning concepts and model deployment.',
       status: 'closed',
       googleFormUrl: null,
@@ -97,7 +97,7 @@ const TrainingsPage = () => {
 
   const getStatusClass = (status: Course['status']) => {
     if (status === 'open') return 'card__status--open';
-    if (status === 'up coming') return 'card__status--upcoming';
+    if (status === 'upcoming') return 'card__status--upcoming';
     return 'card__status--closed';
   };
 
@@ -105,7 +105,7 @@ const TrainingsPage = () => {
     switch (course.status) {
       case 'open':
         return <a href={course.googleFormUrl!} target="_blank" rel="noopener noreferrer" className="card__button card__button--primary">Apply Now</a>;
-      case 'up coming':
+      case 'upcoming':
         return <button className="card__button card__button--secondary" disabled>Notify Me</button>;
       case 'closed':
         return <button className="card__button card__button--disabled" disabled>Closed</button>;
@@ -143,7 +143,7 @@ const TrainingsPage = () => {
           <div className="status-filters">
             <button onClick={() => setActiveFilter('all')} className={activeFilter === 'all' ? 'active' : ''}>All</button>
             <button onClick={() => setActiveFilter('open')} className={activeFilter === 'open' ? 'active' : ''}>Open</button>
-            <button onClick={() => setActiveFilter('up coming')} className={activeFilter === 'up coming' ? 'active' : ''}>Upcoming</button>
+            <button onClick={() => setActiveFilter('upcoming')} className={activeFilter === 'upcoming' ? 'active' : ''}>Upcoming</button>
             <button onClick={() => setActiveFilter('closed')} className={activeFilter === 'closed' ? 'active' : ''}>Closed</button>
           </div>
         </div>
