@@ -284,3 +284,51 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helv
   max-width: 100%;
   height: auto;
 }
+
+
+/* Only apply on large screens */
+@media (min-width: 1024px) {
+  .modal-content {
+    position: relative;
+    background-color: transparent; /* show background image */
+    max-width: 900px;
+    color: whitesmoke; /* default text color */
+    overflow: hidden;
+  }
+
+  .details__header {
+    display: none; /* hide original header image */
+  }
+
+  .modal-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke; /* replace with your modal image */
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.9); /* darken the image more for contrast */
+    z-index: 0;
+  }
+
+  .modal-content > * {
+    position: relative;
+    z-index: 1; /* keep content above overlay */
+    color: whitesmoke; /* default text color */
+  }
+
+  /* Section headers or important text in yellow */
+  .details__section-header {
+    color: #a65f00;
+  }
+
+  /* Links or buttons that should pop */
+  .card__button--primary {
+    background-color: #a65f00;
+    border: none;
+    color: #1e2838; /* dark text on yellow */
+  }
+}
