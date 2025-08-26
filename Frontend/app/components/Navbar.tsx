@@ -25,18 +25,19 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* === LOGO SECTION (CHANGED) === */}
-          <div className="flex-shrink-0  bg-gray-100  ">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/3DP.jpg" // The path to your logo in the `public` folder
-                alt="Your Company Logo"
-                width={210} // Set your desired width
-                height={12} // Set your desired height
-                priority // Add priority to load the logo quickly
-                className="h-20 w-auto "
-              />
-            </Link>
-          </div>
+         <div className="flex-shrink-0 bg-gray-100">
+  <Link href="/" className="flex items-center">
+    <Image
+      src="/3DP.jpg"
+      alt="Your Company Logo"
+      width={210} // max width for large screens
+      height={80} // original height for large screens
+      priority
+      className="h-12 sm:h-16 md:h-20 w-auto" // responsive heights
+    />
+  </Link>
+</div>
+
           {/* === END OF LOGO SECTION === */}
 
           {/* Desktop Navigation Links (Unchanged) */}
