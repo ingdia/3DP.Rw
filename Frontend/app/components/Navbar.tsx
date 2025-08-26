@@ -27,14 +27,15 @@ export const Navbar = () => {
           {/* === LOGO SECTION (CHANGED) === */}
          <div className="flex-shrink-0 bg-gray-100">
   <Link href="/" className="flex items-center">
-    <Image
-      src="/3dp.jpg"
-      alt="Your Company Logo"
-      width={210} // max width for large screens
-      height={80} // original height for large screens
-      priority
-      className="h-12 sm:h-16 md:h-20 w-auto" // responsive heights
-    />
+   <Image
+  src="/3dp.jpg"
+  alt="Your Company Logo"
+  width={210}
+  height={80}
+  priority
+  className="h-18 sm:h-20 md:h-20 w-auto" // big on mobile, smaller on medium and large screens
+/>
+
   </Link>
 </div>
 
