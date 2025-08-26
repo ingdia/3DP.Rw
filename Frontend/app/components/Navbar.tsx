@@ -28,7 +28,7 @@ export const Navbar = () => {
          <div className="flex-shrink-0 bg-gray-100">
   <Link href="/" className="flex items-center">
     <Image
-      src="/3DP.jpg"
+      src="/3dp.jpg"
       alt="Your Company Logo"
       width={210} // max width for large screens
       height={80} // original height for large screens

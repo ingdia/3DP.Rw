@@ -1,26 +1,23 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
-    unoptimized: true, // disables Next.js image optimization (useful for local/dev)
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'http',
         hostname: 'localhost',
         port: '5000',
-        pathname: '/uploads/**', // allow local uploaded images
+        pathname: '/uploads/**',
       },
       {
         protocol: 'https',
-        hostname: 'via.placeholder.com', // example external host
+        hostname: 'via.placeholder.com',
       },
     ],
   },
 
-  output: 'standalone', // good for Docker/container deployments
+  output: 'standalone',
 
   typescript: {
-    // ✅ Ignore TS build errors so the app still compiles
     ignoreBuildErrors: true,
   },
 };
