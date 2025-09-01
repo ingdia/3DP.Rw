@@ -3,7 +3,7 @@ import express from 'express';
 import { protect, isAdmin } from '../middleware/authMiddleware.js';
 import {
   createCapability,
-  getAllCapabilities,
+  
   updateCapability,
   deleteCapability,
 } from '../controllers/capabilityController.js';
@@ -15,7 +15,7 @@ router.use(protect, isAdmin);
 
 router.route('/')
   .post(createCapability)    // POST /api/capabilities
-  .get(getAllCapabilities); // GET /api/capabilities
+
 
 router.route('/:id')
   .put(updateCapability)     // PUT /api/capabilities/:id

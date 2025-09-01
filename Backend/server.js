@@ -8,6 +8,7 @@ import userRoutes from './routes/userRoutes.js';   // <-- Import user routes
 import capabilityRoutes from './routes/capabilityRoutes.js';
 import aiRoutes from './routes/aiRoutes.js';
 import questionRoutes from './routes/questionRoutes.js'
+import fieldRoutes from './routes/fieldRoutes.js';
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use('/api/users', userRoutes);   // <-- Use user routes
 app.use('/api/capabilities', capabilityRoutes);
 app.use('/api/ai', aiRoutes); 
 app.use('/api/questions', questionRoutes); 
+app.use('/api/fields', fieldRoutes);
 
 
 
